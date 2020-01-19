@@ -77,10 +77,11 @@ $('.nav_container').on({
           typeClone[i] = 'first'; //randomCharでfirstをを返す。
 
   };
-          // ランダム文字を生成して返す。
-          var randomChar = function (type) {
-          var pool;
-                  switch (type) {
+  
+  // ランダム文字を生成して返す。
+  var randomChar = function (type) {
+       var pool;
+          switch (type) {
           case 'symbol':
                   pool = '?/\\(^)![]abcdefghijklmnopqrstuvwxyz0123456789{}*&^%$';
                   break;
@@ -93,24 +94,23 @@ $('.nav_container').on({
 
           return pool.charAt(Math.floor(Math.random() * pool.length));
           // Math.randomの帰り値が多分0~1でそれに配列の長さかけて,小数点切り捨てすることでpoolの間の文字を返す.
-          };
-          //初期化。
-          var j = 0;
-          var k = 0;
-          node.textContent = '';
-          // ランダム文字を織り交ぜながら一文字ずつ表示させる。メインです。
-          var ticker = function () {
+  };
+  
+  //初期化。
+  var j = 0;
+  var k = 0;
+  node.textContent = '';
+  // ランダム文字を織り交ぜながら一文字ずつ表示させる。メインです。
+  var ticker = function () {
 
-          if (k > str.length) {
-          k = str.length;
-                  //str.lengthを超えたらstr.lengthで止める。
-                  //理由はそれ以上文字がないから止まっちゃうので。 
-          }
+    if (k > str.length) {
+      k = str.length;
+      //str.lengthを超えたらstr.lengthで止める。
+      //理由はそれ以上文字がないから止まっちゃうので。 
+    }
 
-          //Math.max(a, 0); aと0を比較して値の大きい方を返します。aがマイナスの値の間は0。
-          for (var i = Math.max((j + ((step - 1) * - str.length)), 0); i < k;
-                  i++
-                  ) {
+    //Math.max(a, 0); aと0を比較して値の大きい方を返します。aがマイナスの値の間は0。
+    for (var i = Math.max((j + ((step - 1) * - str.length)), 0); i < k; i++) {
           strClone[Math.abs(i)] = randomChar(typeClone[Math.abs(i)]);
                   //strCloneにランダムな文字列を返す。first or symbol               
                   if (k >= str.length) {
