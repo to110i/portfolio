@@ -3,16 +3,55 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
+  font-family: 'Roboto Mono', monospace, 'Noto Sans JP', sans-serif;
+
 }
 
 body {
   position: relative;
   cursor: none;
+  background-color: #000;
 }
 
+//グローバルメニューここから
+
+// #nav{
+//   display:none;
+//   position:fixed;
+//   z-index:9000;
+//   left:0;
+//   top:48px;
+//   bottom:0;
+//   width:100%;
+//   // background:#000;
+//   font-family:urw-din,sans-serif;
+//   font-size:30px;
+//   letter-spacing:.1em
+// }
+
+.nav_container {
+  writing-mode: vertical-lr;
+  border-right: solid 1px white;
+}
+.nav_container a{
+  text-decoration: none;
+  color: white;
+}
+.nav_container li{
+  font-size:25px;
+  position:relative;
+  display:inline-block;
+  padding:.25em;
+  pointer-events:auto
+}
+
+//グローバルメニューここまで
+
+//マウスカーソルここから
 .cursor,
 .follower {
-  border-radius: 50%;
+  border-radius: 100%;
+  border: solid 1px white;
   position: absolute;
   top: 0;
   left: 0;
@@ -20,20 +59,20 @@ body {
 }
 
 .cursor {
-  width: 8px;
-  height: 8px;
-  background-color: #000;
-  z-index: 1001;
+  width: 50px;
+  height: 50px;
+  // background-color: #FFF;
+  z-index: 1000;
 }
 
 .follower {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(253, 254, 0, 0.5);
-  z-index: 1000;
+  width: 48px;
+  height: 48px;
+  // background-color: #000;
+  z-index: 1001;
   transition: -webkit-transform ease .1s;
   transition: transform ease .1s;
   transition: transform ease .1s, -webkit-transform ease .1s;
@@ -47,9 +86,11 @@ body {
           transform: scale(0);
 }
 .follower.is-active {
+  // background-color: #fff;
   -webkit-transform: scale(3);
           transform: scale(3);
 }
+//マウスカーソルここまで
 
 .btn {
   display: inline-block;
